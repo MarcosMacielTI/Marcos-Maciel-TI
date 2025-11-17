@@ -6,10 +6,13 @@ hamburger.addEventListener('click', () => {
     navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
 });
 
-// Fechar menu ao clicar em um link
+// Fechar menu ao clicar em um link apenas em mobile
 document.querySelectorAll('.nav-links a').forEach(link => {
     link.addEventListener('click', () => {
-        navLinks.style.display = 'none';
+        // Só fecha o menu se estiver em modo mobile (hamburger visível)
+        if (window.innerWidth <= 768) {
+            navLinks.style.display = 'none';
+        }
     });
 });
 
